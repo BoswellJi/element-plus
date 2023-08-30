@@ -1,4 +1,5 @@
 <template>
+  90
   <i :class="ns.b()" :style="style" v-bind="$attrs">
     <slot />
   </i>
