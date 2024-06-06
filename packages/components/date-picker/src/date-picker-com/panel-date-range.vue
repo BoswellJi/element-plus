@@ -388,11 +388,11 @@ const maxVisibleTime = computed(() => {
 })
 
 const timeFormat = computed(() => {
-  return extractTimeFormat(format)
+  return props.timeFormat || extractTimeFormat(format)
 })
 
 const dateFormat = computed(() => {
-  return extractDateFormat(format)
+  return props.dateFormat || extractDateFormat(format)
 })
 
 const isValidValue = (date: [Dayjs, Dayjs]) => {
@@ -679,6 +679,8 @@ const handleClear = () => {
     unlinkPanels: props.unlinkPanels,
   })[0]
   rightDate.value = leftDate.value.add(1, 'month')
+  maxDate.value = undefined
+  minDate.value = undefined
   emit('pick', null)
 }
 
